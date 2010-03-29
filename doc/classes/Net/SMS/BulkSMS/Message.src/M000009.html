@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_http_query (Net::SMS::BulkSMS::Message)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/net/sms/bulksms/message.rb, line 34</span>
+                                <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_http_query</span>
+                                        <span class="ruby-identifier">params</span> = {
+                                                <span class="ruby-value str">'message'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@message</span>,
+                                                <span class="ruby-value str">'msisdn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@recipient</span>,
+                                                <span class="ruby-value str">'msg_class'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@msg_class</span>,
+                                                <span class="ruby-value str">'want_report'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@want_report</span>,
+                                                <span class="ruby-value str">'routing_group'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@routing_group</span>,
+                                                <span class="ruby-value str">'source_id'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@source_id</span>,
+                                                <span class="ruby-value str">'test_always_succeed'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@test_always_succeed</span>,
+                                                <span class="ruby-value str">'test_always_fail'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@test_always_fail</span>,
+                                                <span class="ruby-value str">'allow_concat_text_sms'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@concat_text_sms</span>,
+                                                <span class="ruby-value str">'concat_text_sms_max_parts'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@concat_max_parts</span>
+                                        }
+                                        <span class="ruby-identifier">query_string</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{x}=#{y}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'&amp;'</span>)
+                                        <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">query_string</span>)
+                                <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

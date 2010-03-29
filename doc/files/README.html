@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Fri Feb 24 00:02:02 GMT Standard Time 2006</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Introduction</h1>
+<p>
+<a href="../classes/Net/SMS/BulkSMS.html">Net::SMS::BulkSMS</a> is a Ruby
+library that allows you to easily integrate SMS services into your Ruby or
+RubyOnRails applications.
+</p>
+<p>
+It has support for all BulkSMS international sites, including the UK, USA,
+South Africa, Spain and Europe.
+</p>
+<p>
+To use the library, you will need an account from <a
+href="http://www.bulksms.com">www.bulksms.com</a> and some credits.
+</p>
+<h1>Examples</h1>
+<p>
+Creating a new service and sending a message is simple.
+</p>
+<pre>
+  s = Service.new('myusername', 'mypassword')
+  s.send_message('Hello, I hope you like my message!', '44799123456')
+</pre>
+<h2>Additional message options</h2>
+<p>
+The Service class also has a <tt>send</tt> instance method that accepts a
+Message object. This allows you to construct your own Message objects and
+set additional parameters.
+</p>
+<pre>
+  s = Service.new('myusername', 'mypassword')
+  m = Message.new('Hello, look at my funky message', '44799123456')
+  m.routing_group = 1
+  m.want_report = 1
+  s.send(m)
+</pre>
+<p>
+Both <tt>send</tt> and <tt>send_message</tt> return a Response object.
+</p>
+<h2>Checking your account balance</h2>
+<p>
+If you already have an existing Service object, you can easily check your
+account balance.
+</p>
+<pre>
+  s = Service.new('myusername', 'mypassword')
+  s.account.credits
+</pre>
+<p>
+Alternatively, you can create an Account object directly.
+</p>
+<pre>
+  a = Account.new('myusername', 'mypassword')
+  a.credits
+</pre>
+<p>
+For a further example, see the simple command line client provided.
+</p>
+<h1>Limitations</h1>
+<p>
+This library currently only implements a small portion of the API, allowing
+you to send messages and check your account balance. Further parts of the
+BulkSMS API may be implemented in the future such as the ability to receive
+messages and status reports and manage the address book provided by
+BulkSMS.
+</p>
+<h2>A note about testing</h2>
+<p>
+I tried to cover the library with unit tests where possible however
+I&#8217;m not very experienced with unit testing network services and all
+tests require a valid account to run. If anybody could share some advice
+here it would be much appreciated.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

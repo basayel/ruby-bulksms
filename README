@@ -1,0 +1,48 @@
+= Introduction
+
+Net::SMS::BulkSMS is a Ruby library that allows you to easily integrate SMS services into your Ruby or RubyOnRails applications.
+
+It has support for all BulkSMS international sites, including the UK, USA, South Africa, Spain and Europe.
+
+To use the library, you will need an account from www.bulksms.com and some credits.
+
+= Examples
+
+Creating a new service and sending a message is simple.
+
+  s = Service.new('myusername', 'mypassword')
+  s.send_message('Hello, I hope you like my message!', '44799123456')
+  
+== Additional message options
+
+The Service class also has a <tt>send</tt> instance method that accepts a Message object. This allows you to construct your own Message objects and set additional parameters.
+
+  s = Service.new('myusername', 'mypassword')
+  m = Message.new('Hello, look at my funky message', '44799123456')
+  m.routing_group = 1
+  m.want_report = 1
+  s.send(m)
+
+Both <tt>send</tt> and <tt>send_message</tt> return a Response object.
+
+== Checking your account balance
+
+If you already have an existing Service object, you can easily check your account balance.
+
+  s = Service.new('myusername', 'mypassword')
+  s.account.credits
+
+Alternatively, you can create an Account object directly.
+
+  a = Account.new('myusername', 'mypassword')
+  a.credits
+
+For a further example, see the simple command line client provided.
+
+= Limitations
+
+This library currently only implements a small portion of the API, allowing you to send messages and check your account balance. Further parts of the BulkSMS API may be implemented in the future such as the ability to receive messages and status reports and manage the address book provided by BulkSMS.
+
+== A note about testing
+
+I tried to cover the library with unit tests where possible however I'm not very experienced with unit testing network services and all tests require a valid account to run. If anybody could share some advice here it would be much appreciated.

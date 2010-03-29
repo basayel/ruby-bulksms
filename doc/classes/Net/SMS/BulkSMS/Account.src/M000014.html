@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>credits (Net::SMS::BulkSMS::Account)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/net/sms/bulksms/account.rb, line 25</span>
+                                <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">credits</span>
+                                        <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">host</span>(<span class="ruby-ivar">@country</span>), <span class="ruby-constant">SERVICE_PORT</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+                                                <span class="ruby-identifier">response</span> = <span class="ruby-identifier">http</span>.<span class="ruby-identifier">post</span> <span class="ruby-constant">SERVICE_PATH</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_http_query</span>
+                                                <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value str">'|'</span>)
+                                                        <span class="ruby-identifier">rsp</span> = <span class="ruby-constant">Response</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+                                                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">AccountError</span>, <span class="ruby-identifier">rsp</span>.<span class="ruby-identifier">description</span>, <span class="ruby-identifier">caller</span>
+                                                <span class="ruby-keyword kw">end</span>
+                                                <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_f</span>
+                                        <span class="ruby-keyword kw">end</span>
+                                <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

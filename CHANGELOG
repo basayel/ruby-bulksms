@@ -1,0 +1,8 @@
+* 0.2
+Added CHANGELOG and a README file
+Added support for BulkSMS international sites
+
+* 0.1
+Added support for sending messages
+Added support checking account balance
+Included a small example command-line client
