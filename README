@@ -1,4 +1,4 @@
-= Introduction
+== Introduction
 
 Net::SMS::BulkSMS is a Ruby library that allows you to easily integrate SMS services into your Ruby or RubyOnRails applications.
 
@@ -6,7 +6,7 @@ It has support for all BulkSMS international sites, including the UK, USA, South
 
 To use the library, you will need an account from www.bulksms.com and some credits.
 
-= Examples
+== Examples
 
 Creating a new service and sending a message is simple.
 
@@ -39,10 +39,19 @@ Alternatively, you can create an Account object directly.
 
 For a further example, see the simple command line client provided.
 
-= Limitations
+== Limitations
 
 This library currently only implements a small portion of the API, allowing you to send messages and check your account balance. Further parts of the BulkSMS API may be implemented in the future such as the ability to receive messages and status reports and manage the address book provided by BulkSMS.
 
 == A note about testing
 
 I tried to cover the library with unit tests where possible however I'm not very experienced with unit testing network services and all tests require a valid account to run. If anybody could share some advice here it would be much appreciated.
+
+==Authors:
+
+The Original work is made by Luke Redpath (email:contact@lukeredpath.co.uk)
+Modifications have been added by Basayel Said (email:eng.basayel.said@gmail.com)
+Modifications include:
+1.fixing a bug related to getting the host of bulksms service.
+2.adding gem spec file to the library.
+3.packaging the library as a gem.

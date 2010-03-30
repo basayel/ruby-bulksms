@@ -1,3 +1,8 @@
+* 0.3
+Fixing a bug related to getting the host of bulksms service
+Added gem spec file to the library
+Packaging the library as a gem
+
 * 0.2
 Added CHANGELOG and a README file
 Added support for BulkSMS international sites
