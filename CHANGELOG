@@ -1,3 +1,6 @@
+*0.4
+Adding method send_multiple to bulksms.rb file 
+
 * 0.3
 Fixing a bug related to getting the host of bulksms service
 Added gem spec file to the library

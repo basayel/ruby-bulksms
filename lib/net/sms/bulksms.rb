@@ -51,15 +51,26 @@ module Net
 						Response.parse(resp.body)
 					end
 				end
-
+        #Openning single connection & sending an array of message objects
+        def send_multiple(messages)
+          responses=[]
+          Net::HTTP.start(host(@country), MESSAGE_SERVICE_PORT) do |http|
+            messages.each do |msg|
+              payload = [@account.to_http_query, msg.to_http_query].join('&')
+              resp = http.post(MESSAGE_SERVICE_PATH, payload)
+              responses << Response.parse(resp.body)
+            end
+          end
+          responses
+        end
 				# Creates a new Message object from the message text and recipient
 				# given and sends to the gateway using send_message()
 				def send(message, recipient)
 					msg = Message.new(message, recipient)
 					self.send_message(msg)
 				end
-			end
-    
+      end
+      
 			# Returns the gateway URL for the chosen country
 			def host(country)
 				case country
