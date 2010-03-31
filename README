@@ -65,5 +65,6 @@ The Original work is made by Luke Redpath (email:contact@lukeredpath.co.uk)
 Modifications have been added by Basayel Said (email:eng.basayel.said@gmail.com)
 Modifications include:
 1.fixing a bug related to getting the host of bulksms service.
-2.adding gem spec file to the library.
-3.packaging the library as a gem.
+2.Adding method named (send_multiple) in order to use a single http connection in sending multiple message objects.
+3.adding gem spec file to the library.
+4.packaging the library as a gem.
