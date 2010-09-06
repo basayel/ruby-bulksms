@@ -47,7 +47,7 @@ Also you can use a single http connection & send multiple messages using <tt>sen
   m2= Message.new('Hello2, look at my funky message', '44799123666')
   messages << m1
   messages << m2
- responses=s.send_multiple(messages)
+  responses=s.send_multiple(messages)
  
 For a further example, see the simple command line client provided.
 
@@ -62,9 +62,12 @@ I tried to cover the library with unit tests where possible however I'm not very
 = Authors
 
 The Original work is made by Luke Redpath (email:contact@lukeredpath.co.uk)
+
 Modifications have been added by Basayel Said (email:eng.basayel.said@gmail.com)
+
 Modifications include:
-1.fixing a bug related to getting the host of bulksms service.
-2.Adding method named (send_multiple) in order to use a single http connection in sending multiple message objects.
-3.adding gem spec file to the library.
-4.packaging the library as a gem.
+
+* fixing a bug related to getting the host of bulksms service.
+* Adding method named (send_multiple) in order to use a single http connection in sending multiple message objects.
+* adding gem spec file to the library.
+* packaging the library as a gem.
