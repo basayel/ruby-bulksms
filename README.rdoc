@@ -41,13 +41,13 @@ Alternatively, you can create an Account object directly.
   
 Also you can use a single http connection & send multiple messages using <tt>send_multiple</tt> method that accepts an array of Message object and return an array of Response object
   s = Service.new('myusername', 'mypassword')
-  messages=[]
-  responses=[]
-  m1 =Message.new('Hello1, look at my funky message', '44799123456')
-  m2= Message.new('Hello2, look at my funky message', '44799123666')
+  messages = []
+  responses = []
+  m1 = Message.new('Hello1, look at my funky message', '44799123456')
+  m2 = Message.new('Hello2, look at my funky message', '44799123666')
   messages << m1
   messages << m2
-  responses=s.send_multiple(messages)
+  responses = s.send_multiple(messages)
  
 For a further example, see the simple command line client provided.
 
