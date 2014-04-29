@@ -11,7 +11,7 @@ To use the library, you will need an account from www.bulksms.com and some credi
 Creating a new service and sending a message is simple.
 
   s = Service.new('myusername', 'mypassword')
-  s.send_message('Hello, I hope you like my message!', '44799123456')
+  s.send('Hello, I hope you like my message!', '44799123456')
   
 = Additional message options
 
@@ -21,7 +21,7 @@ The Service class also has a <tt>send</tt> instance method that accepts a Messag
   m = Message.new('Hello, look at my funky message', '44799123456')
   m.routing_group = 1
   m.want_report = 1
-  s.send(m)
+  s.send_message(m)
 
 Both <tt>send</tt> and <tt>send_message</tt> return a Response object.
 
