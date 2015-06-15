@@ -1,4 +1,7 @@
-*0.4
+* 0.4.1
+Changing the default country settings to be international instead of uk
+
+* 0.4
 Adding method send_multiple to bulksms.rb file 
 
 * 0.3
