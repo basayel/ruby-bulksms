@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors  = ["Basayel Said"]
   s.files    = [ 
                 "ruby-bulksms.gemspec", 
-                "README",
+                "README.rdoc",
                 "lib/ruby-bulksms.rb",
                 "lib/net/sms/bulksms/account.rb",
                 "lib/net/sms/bulksms/message.rb",
