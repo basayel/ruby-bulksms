@@ -38,7 +38,7 @@ module Net
 				# returns an Account object for the credentials supplied to the service
 				attr_reader :account
 
-				def initialize(username, password, country = 'uk')
+				def initialize(username, password, country = INTER)
 					@account = Account.new(username, password, country)
           @country=country
 				end
