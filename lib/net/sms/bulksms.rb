@@ -46,7 +46,7 @@ module Net
 				# Sends the given Message object to the gateway for delivery
 				def send_message(msg)
 					payload = [@account.to_http_query, msg.to_http_query].join('&')
-					Net::HTTP.start(host(@country), MESSAGE_SERVICE_PORT) do |http|
+					Net::HTTP.start(bulksms_gateway(@country), MESSAGE_SERVICE_PORT) do |http|
 						resp = http.post(MESSAGE_SERVICE_PATH, payload)
 						Response.parse(resp.body)
 					end
@@ -54,7 +54,7 @@ module Net
         #Openning single connection & sending an array of message objects
         def send_multiple(messages)
           responses=[]
-          Net::HTTP.start(host(@country), MESSAGE_SERVICE_PORT) do |http|
+          Net::HTTP.start(bulksms_gateway(@country), MESSAGE_SERVICE_PORT) do |http|
             messages.each do |msg|
               payload = [@account.to_http_query, msg.to_http_query].join('&')
               resp = http.post(MESSAGE_SERVICE_PATH, payload)
@@ -71,7 +71,7 @@ module Net
 				end
 
         # Returns the gateway URL for the chosen country
-        def host(country)
+        def self.bulksms_gateway(country)
           case country
           when 'uk'
             'www.bulksms.co.uk'

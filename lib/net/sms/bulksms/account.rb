@@ -23,7 +23,7 @@ module Net
 				# float to 2 decimal places. Will raise an AccountError
 				# if the credentials are wrong
 				def credits
-					Net::HTTP.start(host(@country), SERVICE_PORT) do |http|
+					Net::HTTP.start(Service.bulksms_gateway(@country), SERVICE_PORT) do |http|
 						response = http.post SERVICE_PATH, self.to_http_query
 						if response.body.include?('|')
 							rsp = Response.parse(response.body)
