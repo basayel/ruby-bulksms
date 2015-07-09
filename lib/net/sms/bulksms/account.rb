@@ -9,7 +9,7 @@ module Net
 			class Account
 
 				# The port the account service runs on
-				SERVICE_PORT = 7512
+				SERVICE_PORT = 80#7512
 
 				# Path to the account service gateway
 				SERVICE_PATH = '/eapi/1.0/get_credits.mc'
