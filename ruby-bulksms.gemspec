@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "ruby-bulksms"
-  s.version  = "0.4.3"
+  s.version  = "0.4.4"
   s.date     = "2015-07-02"
   s.summary  = "Sending SMS using bulksms services"
   s.email    = "eng.basayel.said@gmail.com"
