@@ -25,7 +25,7 @@ module Net
 					@source_id = ''
 					@test_always_succeed = 0
 					@test_always_fail = 0
-					@concat_text_sms = 0
+					@concat_text_sms = 1
 					@concat_max_parts = 2
 				end
 
