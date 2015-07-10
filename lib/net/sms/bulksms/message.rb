@@ -20,7 +20,7 @@ module Net
 					@message = message
 					@recipient = recipient
 					@msg_class = NORMAL_SMS
-					@want_report = 0
+					@want_report = 1
 					@routing_group = 2
 					@source_id = ''
 					@test_always_succeed = 0
