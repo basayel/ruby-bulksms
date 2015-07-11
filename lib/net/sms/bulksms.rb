@@ -4,6 +4,7 @@
 require File.dirname(__FILE__) + '/bulksms/account'
 require File.dirname(__FILE__) + '/bulksms/message'
 require File.dirname(__FILE__) + '/bulksms/response'
+require File.dirname(__FILE__) + '/bulksms/report'
 
 module Net
 	module SMS
