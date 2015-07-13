@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
                 "lib/net/sms/bulksms/account.rb",
                 "lib/net/sms/bulksms/message.rb",
                 "lib/net/sms/bulksms/response.rb",
+                "lib/net/sms/bulksms/report.rb",
                 "lib/net/sms/bulksms.rb"
   ]
 end
