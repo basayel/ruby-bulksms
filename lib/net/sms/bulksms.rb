@@ -36,6 +36,9 @@ module Net
 				# Path to the message service gateway
 				MESSAGE_SERVICE_PATH = '/eapi/submission/send_sms/2/2.0'
 
+        #path to the report service
+        REPORT_SERVICE_PATH = '/eapi/status_reports/get_report/2/2.0'
+
 				# returns an Account object for the credentials supplied to the service
 				attr_reader :account
 
@@ -69,7 +72,16 @@ module Net
 				def send(message, recipient)
 					msg = Message.new(message, recipient)
 					self.send_message(msg)
-				end
+        end
+
+        #Get a message report
+        def get_report(batch_id)
+          payload = [@account.to_http_query, batch_id.to_http_query].join('&')
+          Net::HTTP.start(Service.bulksms_gateway(@country), MESSAGE_SERVICE_PORT) do |http|
+            resp = http.get(REPORT_SERVICE_PATH, payload)
+            Response.parse(resp.body)
+          end
+        end
 
         # Returns the gateway URL for the chosen country
         def self.bulksms_gateway(country)
