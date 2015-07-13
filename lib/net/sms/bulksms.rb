@@ -28,7 +28,7 @@ module Net
 			SPAIN = 'spain'
 			SAFRICA = 'safrica'
 			INTER = 'international'
-					                                        ulk
+
 			class Service
 				# The port the message service rus on
 				MESSAGE_SERVICE_PORT = 80 #5567
