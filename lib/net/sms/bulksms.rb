@@ -80,7 +80,8 @@ module Net
           http = Net::HTTP.new(Service.bulksms_gateway(@country))
           request = Net::HTTP::Get.new('/eapi/status_reports/get_report/2/2.0?' + payload)
           response = http.request(request)
-          Response.parse(response.body)
+          tokens = response.body.split('|')
+          Response.new(tokens[2].to_i, tokens[1], batch_id)
         end
 
         # Returns the gateway URL for the chosen country
