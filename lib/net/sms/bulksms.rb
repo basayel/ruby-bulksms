@@ -76,7 +76,7 @@ module Net
 
         #Get a message report
         def get_report(batch_id)
-          payload = [@account.to_http_query, batch_id.to_query].join('&')
+          payload = [@account.to_http_query, {:batch_id => batch_id}.to_query].join('&')
           Net::HTTP.start(Service.bulksms_gateway(@country), MESSAGE_SERVICE_PORT) do |http|
             resp = http.get(REPORT_SERVICE_PATH, payload)
             Response.parse(resp.body)
