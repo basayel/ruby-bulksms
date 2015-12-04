@@ -20,12 +20,12 @@ module Net
 					@message = message
 					@recipient = recipient
 					@msg_class = NORMAL_SMS
-					@want_report = 0
+					@want_report = 1
 					@routing_group = 2
 					@source_id = ''
 					@test_always_succeed = 0
 					@test_always_fail = 0
-					@concat_text_sms = 0
+					@concat_text_sms = 1
 					@concat_max_parts = 2
 				end
 

@@ -4,6 +4,7 @@
 require File.dirname(__FILE__) + '/bulksms/account'
 require File.dirname(__FILE__) + '/bulksms/message'
 require File.dirname(__FILE__) + '/bulksms/response'
+require File.dirname(__FILE__) + '/bulksms/report'
 
 module Net
 	module SMS
@@ -27,13 +28,16 @@ module Net
 			SPAIN = 'spain'
 			SAFRICA = 'safrica'
 			INTER = 'international'
-					
+
 			class Service
 				# The port the message service rus on
 				MESSAGE_SERVICE_PORT = 80 #5567
 
 				# Path to the message service gateway
 				MESSAGE_SERVICE_PATH = '/eapi/submission/send_sms/2/2.0'
+
+        #path to the report service
+        REPORT_SERVICE_PATH = '/eapi/status_reports/get_report/2/2.0'
 
 				# returns an Account object for the credentials supplied to the service
 				attr_reader :account
@@ -68,7 +72,17 @@ module Net
 				def send(message, recipient)
 					msg = Message.new(message, recipient)
 					self.send_message(msg)
-				end
+        end
+
+        #Get a message report
+        def get_report(batch_id)
+          payload = [@account.to_http_query, {:batch_id => batch_id}.to_query].join('&')
+          http = Net::HTTP.new(Service.bulksms_gateway(@country))
+          request = Net::HTTP::Get.new('/eapi/status_reports/get_report/2/2.0?' + payload)
+          response = http.request(request)
+          tokens = response.body.split('|')
+          Response.new(tokens[2].to_i, tokens[1], batch_id)
+        end
 
         # Returns the gateway URL for the chosen country
         def self.bulksms_gateway(country)
